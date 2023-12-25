@@ -3,7 +3,8 @@ const app= express();
 const PORT= process.env.PORT ||3500;
 const path = require('path');
 
-
+//Middlewares
+app.use(express.json());
 app.use('/', express.static(path.join(__dirname, 'public')))
 
 
@@ -22,3 +23,4 @@ app.all('*', (req,res)=>{
 app.listen(PORT, ()=>
     console.log(`Server runnning on port ${PORT}`)
 )
+
