@@ -8,11 +8,11 @@ const noteSchema = new mongoose.Schema(
       ref: "User",
     },
     title: {
-      type: string,
+      type: String,
       required: true,
     },
     text: {
-      type: string,
+      type: String,
       required: true,
     },
     completed: {

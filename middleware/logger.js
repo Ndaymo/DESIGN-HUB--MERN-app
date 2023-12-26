@@ -19,7 +19,12 @@ try {
 }
 }
 const logger = (req,res, next)=>{
-    logEvents(`${req.method}\t${req.url}\t${req.headers.origin}`, 'req.Log.log')
+    const startTime = new Date();
+    res.on('finish', () => {
+        const endTime = new Date();
+        const responseTime = endTime - startTime;
+    logEvents(`${req.method}\t${req.url}\t${req.headers.origin}`, 'req.Log.log');
+});
     console.log(`${req.method} ${req.path}`)
     next()
 }
